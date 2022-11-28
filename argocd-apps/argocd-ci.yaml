@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-ci
+  name: argocd
 spec:
   destination:
     server: 'https://kubernetes.default.svc'
@@ -11,19 +11,13 @@ spec:
   # DO NOT auto sync ArgoCD.
   # We should confirm the app diff is correct before syncing
   syncPolicy: {}
-  project: default
+  project: argocd
   source:
-    repoURL: https://argoproj.github.io/argo-helm
-    chart: argo-cd
-    targetRevision: 3.17.5
+    repoURL: https://github.com/dzungda/argocd-testing.git
+    path: argocd-install/argo-cd
+    targetRevision: HEAD
     helm:
-      values: |
-        installCRDs: true
-
-        global:
-          image:
-            tag: v2.1.1
-
-        server:
-          extensions:
-            enabled: true
+      valueFiles:
+        - values.yaml
+        - ../values-override.yaml
+      version: v3
