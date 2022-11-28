@@ -24,3 +24,25 @@ spec:
         global:
           image:
             tag: v2.1.1
+
+        server:
+          service:
+            type: LoadBalancer
+        
+          additionalApplications:
+            - name: ci-argo-cd
+              namespace: argocd
+              project: default
+              destination:
+                name: in-cluster
+                namespace: argocd
+              syncPolicy:
+                automated:
+                  selfHeal: true
+              source:
+                repoURL: https://github.com/dzungda/argocd-testing.git
+                targetRevision: HEAD
+                path: managed/
+                directory:
+                  recurse: true
+
