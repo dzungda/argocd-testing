@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: azure-ci-east-asia
+  namespace: argocd
+spec:
+  description: CI cluster in Azure East Asia
+  sourceRepos:
+    - "*"
+
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: "*"
+
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  namespaceResourceBlacklist: []

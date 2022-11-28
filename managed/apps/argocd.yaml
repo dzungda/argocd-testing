@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ci-ea-argocd
+spec:
+  project: azure-ci-east-asia
+  destination:
+    name: in-cluster
+    namespace: argocd
+
+  # To avoid getting ourselves a bit stuck,
+  # DO NOT auto sync ArgoCD.
+  # We should confirm the app diff is correct before syncing
+  syncPolicy: {}
+
+  source:
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: argo-cd
+    targetRevision: 3.17.5
+    helm:
+      values: |
+        installCRDs: true
+
+        global:
+          image:
+            tag: v2.1.1
