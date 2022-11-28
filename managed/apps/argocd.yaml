@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ci-ea-argocd
+  name: argo-cd
 spec:
   project: azure-ci-east-asia
   destination:
