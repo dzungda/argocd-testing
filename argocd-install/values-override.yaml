@@ -6,6 +6,8 @@ server:
   ## ArgoCD config
   ## reference https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/argocd-cm.yaml
   configEnabled: true
+  service:
+    type: LoadBalancer
   config:
     repositories: |
       - type: git
