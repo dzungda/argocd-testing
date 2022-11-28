@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-ci
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+
+  # To avoid getting ourselves a bit stuck,
+  # DO NOT auto sync ArgoCD.
+  # We should confirm the app diff is correct before syncing
+  syncPolicy: {}
+  project: default
+  source:
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: argo-cd
+    targetRevision: 3.17.5
+    helm:
+      values: |
+        installCRDs: true
+
+        global:
+          image:
+            tag: v2.1.1
+
+        server:
+          extensions:
+            enabled: true
+
+          # additionalApplications:
+          #   - name: ci-argocd-test
+          #     namespace: argocd
+          #     project: kind-hung-cluster-local
+          #     destination:
+          #       name: in-cluster
+          #       namespace: argocd
+          #     syncPolicy:
+          #       automated:
+          #         selfHeal: true
+          #     source:
+          #       repoURL: https://github.com/hungran/k8s-deploy-argo.git
+          #       targetRevision: HEAD
+          #       path: argocd/clusters/kind/kind-hung-cluster-local/managed/
+          #       directory:
+          #         recurse: true
