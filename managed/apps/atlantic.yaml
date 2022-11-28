@@ -1,19 +1,19 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: atlantis
-spec:
-  project: azure-ci-east-asia
-  destination:
-    name: in-cluster
-    namespace: atlantis
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-  source:
-    repoURL: https://runatlantis.github.io/helm-charts
-    chart: atlantis
-    targetRevision: HEAD
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: atlantis
+# spec:
+#   project: azure-ci-east-asia
+#   destination:
+#     name: in-cluster
+#     namespace: atlantis
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
+#   source:
+#     repoURL: https://runatlantis.github.io/helm-charts
+#     chart: atlantis
+#     targetRevision: HEAD
