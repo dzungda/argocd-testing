@@ -11,7 +11,7 @@ server:
   config:
     repositories: |
       - type: git
-        url: git@github.com:dzungda/argocd-testing.git
+        url: https://github.com/dzungda/argocd-testing.git
       - name: argo-helm
         type: helm
         url: https://argoproj.github.io/argo-helm
@@ -29,7 +29,7 @@ server:
           - values.yaml
           - ../values-override.yaml
         path: argocd-install/argo-cd
-        repoURL: git@github.com:dzungda/argocd-testing.git
+        repoURL: https://github.com/dzungda/argocd-testing.git
         targetRevision: HEAD
       syncPolicy:
         syncOptions:
@@ -42,7 +42,7 @@ server:
       project: argocd
       source:
         path: argocd-apps
-        repoURL: git@github.com:dzungda/argocd-testing.git
+        repoURL: https://github.com/dzungda/argocd-testing.git
         targetRevision: HEAD
         directory:
           recurse: true
@@ -59,7 +59,7 @@ server:
       project: argocd
       source:
         path: argocd-appprojects
-        repoURL: git@github.com:dzungda/argocd-testing.git
+        repoURL: https://github.com/dzungda/argocd-testing.git
         targetRevision: HEAD
         directory:
           recurse: true
