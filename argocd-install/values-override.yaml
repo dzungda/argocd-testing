@@ -31,9 +31,6 @@ server:
         path: argocd-install/argo-cd
         repoURL: https://github.com/dzungda/argocd-testing.git
         targetRevision: HEAD
-      syncPolicy:
-        syncOptions:
-        - CreateNamespace=true
     - name: argocd-apps
       namespace: argocd
       destination:
