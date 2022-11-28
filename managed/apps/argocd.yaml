@@ -16,14 +16,17 @@ spec:
   source:
     repoURL: https://argoproj.github.io/argo-helm
     chart: argo-cd
-    targetRevision: 3.17.5
+    targetRevision: 5.6.0
     helm:
       values: |
         installCRDs: true
 
+        applicationSet:
+          enabled: false
+
         global:
           image:
-            tag: v2.1.1
+            tag: ""
 
         server:
           service:
@@ -32,6 +35,8 @@ spec:
           additionalApplications:
             - name: ci-argo-cd
               namespace: argocd
+              additionalAnnotations:
+                "helm.sh/resource-policy": keep
               project: default
               destination:
                 name: in-cluster
