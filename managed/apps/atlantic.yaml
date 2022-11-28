@@ -16,4 +16,4 @@ spec:
   source:
     repoURL: https://runatlantis.github.io/helm-charts
     chart: atlantis
-    targetRevision: 4.1.0
+    targetRevision: HEAD
