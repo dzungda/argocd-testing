@@ -32,20 +32,4 @@ spec:
           service:
             type: LoadBalancer
         
-          additionalApplications:
-            - name: ci-argo-cd
-              namespace: argocd
-              project: default
-              destination:
-                name: in-cluster
-                namespace: argocd
-              syncPolicy:
-                automated:
-                  selfHeal: true
-              source:
-                repoURL: https://github.com/dzungda/argocd-testing.git
-                targetRevision: HEAD
-                path: managed/
-                directory:
-                  recurse: true
-
+          
