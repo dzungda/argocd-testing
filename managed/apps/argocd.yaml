@@ -28,6 +28,15 @@ spec:
           image:
             tag: "v2.1.1"
                
+        configs:
+          repositories:
+            private-github-repo:
+              url: https://github.com/dzungda/argocd-testing.git
+              name: private-repo-argocd-testing
+              type: git
+              password: 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
+              username: dzungda
+               
         server:
           service:
             type: LoadBalancer
