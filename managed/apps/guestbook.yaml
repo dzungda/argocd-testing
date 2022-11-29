@@ -10,7 +10,7 @@ spec:
   project: azure-ci-east-asia
   source:
     path: guestbook/
-    repoURL: https://github.com/dzungda/argocd-testing.git
+    repoURL: git@github.com:dzungda/argocd-testing.git
     targetRevision: HEAD
   syncPolicy:
     syncOptions:

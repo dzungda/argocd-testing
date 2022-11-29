@@ -52,7 +52,7 @@ spec:
                 automated:
                   selfHeal: true
               source:
-                repoURL: https://github.com/dzungda/argocd-testing.git
+                repoURL: git@github.com:dzungda/argocd-testing.git
                 targetRevision: HEAD
                 path: managed/
                 directory:
