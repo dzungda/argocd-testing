@@ -41,7 +41,7 @@ spec:
             type: LoadBalancer
 
           additionalApplications:
-            - name: ci-argo-cd-2
+            - name: ci-argo-cd
               namespace: argocd
               project: default
               destination:
