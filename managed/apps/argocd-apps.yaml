@@ -1,33 +1,33 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: argocd-apps
-spec:
-  project: azure-ci-east-asia
-  destination:
-    name: in-cluster
-    namespace: argocd
-  syncPolicy: {}
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: argocd-apps
+# spec:
+#   project: azure-ci-east-asia
+#   destination:
+#     name: in-cluster
+#     namespace: argocd
+#   syncPolicy: {}
 
-  source:
-    repoURL: https://argoproj.github.io/argo-helm
-    chart: argocd-apps
-    targetRevision: 0.0.3
-    helm:
-      values: |
-        applications:
-          - name: ci-argo-cd
-            namespace: argocd
-            project: default
-            destination:
-              name: in-cluster
-              namespace: argocd
-            syncPolicy:
-              automated:
-                selfHeal: true
-            source:
-              repoURL: https://github.com/dzungda/argocd-testing.git
-              targetRevision: HEAD
-              path: managed/
-              directory:
-                recurse: true
+#   source:
+#     repoURL: https://argoproj.github.io/argo-helm
+#     chart: argocd-apps
+#     targetRevision: 0.0.3
+#     helm:
+#       values: |
+#         applications:
+#           - name: ci-argo-cd
+#             namespace: argocd
+#             project: default
+#             destination:
+#               name: in-cluster
+#               namespace: argocd
+#             syncPolicy:
+#               automated:
+#                 selfHeal: true
+#             source:
+#               repoURL: https://github.com/dzungda/argocd-testing.git
+#               targetRevision: HEAD
+#               path: managed/
+#               directory:
+#                 recurse: true
