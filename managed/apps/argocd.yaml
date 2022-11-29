@@ -27,14 +27,7 @@ spec:
         global:
           image:
             tag: "v2.1.1"
-        
-        configs:
-          repositoryCredentials: |
-            - url: git@github.com:dzungda/argocd-testing.git
-              sshPrivateKeySecret:
-                name: repo-argocd-testing
-                key: sshPrivateKey         
-
+               
         server:
           service:
             type: LoadBalancer
