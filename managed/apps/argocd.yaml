@@ -32,6 +32,15 @@ spec:
           service:
             type: LoadBalancer
 
+          config:
+            repositories: |
+              - url: git@github.com:dzungda/argocd-testing.git
+                sshPrivateKeySecret:
+                  name: repo-argocd-testing
+                  key: sshPrivateKey
+
+            repository.credentials:
+
           additionalApplications:
             - name: ci-argo-cd
               namespace: argocd
