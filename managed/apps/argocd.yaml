@@ -16,17 +16,17 @@ spec:
   source:
     repoURL: https://argoproj.github.io/argo-helm
     chart: argo-cd
-    targetRevision: 3.17.5
+    targetRevision: 5.6.0
     helm:
       values: |
         installCRDs: true
 
-        # applicationSet:
-        #   enabled: false
+        applicationSet:
+          enabled: false
 
         global:
           image:
-            tag: "v2.1.1"
+            tag: ""
                
         configs:
           repositories:
@@ -40,21 +40,21 @@ spec:
           service:
             type: LoadBalancer
 
-          additionalApplications:
-            - name: ci-argo-cd
-              namespace: argocd
-              project: default
-              destination:
-                name: in-cluster
-                namespace: argocd
-              syncPolicy:
-                automated:
-                  selfHeal: true
-              source:
-                repoURL: https://github.com/dzungda/argocd-testing.git
-                targetRevision: HEAD
-                path: managed/
-                directory:
-                  recurse: true
+          # additionalApplications:
+          #   - name: ci-argo-cd
+          #     namespace: argocd
+          #     project: default
+          #     destination:
+          #       name: in-cluster
+          #       namespace: argocd
+          #     syncPolicy:
+          #       automated:
+          #         selfHeal: true
+          #     source:
+          #       repoURL: https://github.com/dzungda/argocd-testing.git
+          #       targetRevision: HEAD
+          #       path: managed/
+          #       directory:
+          #         recurse: true
         
           
