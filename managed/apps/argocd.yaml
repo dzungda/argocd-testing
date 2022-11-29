@@ -34,8 +34,7 @@ spec:
               url: https://github.com/dzungda/argocd-testing.git
               name: private-repo-argocd-testing
               type: git
-              password: Z2hwX3l5bVpYdWE5aUc5TjM4R0djMXVPcHpsTUxMem10aTI1R0lVTA==
-              username: ZHp1bmdkYQ==
+
                
         server:
           service:
