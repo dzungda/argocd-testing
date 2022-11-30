@@ -6,7 +6,7 @@
 #   project: azure-ci-east-asia
 #   destination:
 #     name: in-cluster
-#     namespace: argocd
+#     namespace: argo-cd
 #   syncPolicy: {}
 
 #   source:
@@ -17,11 +17,11 @@
 #       values: |
 #         applications:
 #           - name: ci-argo-cd
-#             namespace: argocd
+#             namespace: argo-cd
 #             project: default
 #             destination:
 #               name: in-cluster
-#               namespace: argocd
+#               namespace: argo-cd
 #             syncPolicy:
 #               automated:
 #                 selfHeal: true

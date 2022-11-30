@@ -6,7 +6,7 @@ spec:
   project: azure-ci-east-asia
   destination:
     name: in-cluster
-    namespace: argocd
+    namespace: argo-cd
 
   # To avoid getting ourselves a bit stuck,
   # DO NOT auto sync ArgoCD.
@@ -42,11 +42,11 @@ spec:
 
           additionalApplications:
             - name: ci-argo-cd
-              namespace: argocd
+              namespace: argo-cd
               project: default
               destination:
                 name: in-cluster
-                namespace: argocd
+                namespace: argo-cd
               syncPolicy:
                 automated:
                   selfHeal: true

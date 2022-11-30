@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: azure-ci-east-asia
-  namespace: argocd
+  namespace: argo-cd
 spec:
   description: CI cluster in Azure East Asia
   sourceRepos:
